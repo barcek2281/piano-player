@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano player</title>
+  <link rel="stylesheet" href="./static/style/style.css">
+
 </head>
+
 <body>
+    <div class="interactive-panel">
+        <div class="switch-mode">
+            <button class="btn_switch active">Interactive Mode</button>
+            <button class="btn_switch">Prepared Mode</button>
+        </div>
+        <div class="recording-mode">
+            <button class="btn_recording active">Record</button>
+            <button class="btn_recording">Stop Recording</button>
+            <button class="btn_recording">Download Recording</button>
+        </div>
+    </div>
     <div id="piano" class="piano">
-        <div class="piano__key">C3</div>
+        <div class="octave">
+            <div class="piano__key-white">C</div>
+            <div class="piano__key-white">D</div>
+            <div class="piano__key-white">E</div>
+            <div class="piano__key-white">F</div>
+            <div class="piano__key-white">G</div>
+            <div class="piano__key-white">A</div>
+            <div class="piano__key-white">B</div>
+            <div class="piano__key-black cs">C#</div>
+            <div class="piano__key-black ds">D#</div>
+            <div class="piano__key-black fs">F#</div>
+            <div class="piano__key-black gs">G#</div>
+            <div class="piano__key-black as">A#</div>
+        </div>
+        <div class="octave">
+            <div class="piano__key-white">C</div>
+            <div class="piano__key-white">D</div>
+            <div class="piano__key-white">E</div>
+            <div class="piano__key-white">F</div>
+            <div class="piano__key-white">G</div>
+            <div class="piano__key-white">A</div>
+            <div class="piano__key-white">B</div>
+                <div class="piano__key-black cs">C#</div>
+            <div class="piano__key-black ds">D#</div>
+            <div class="piano__key-black fs">F#</div>
+            <div class="piano__key-black gs">G#</div>
+            <div class="piano__key-black as">A#</div>
+        </div>
+        <div class="octave">
+            <div class="piano__key-white">C</div>
+            <div class="piano__key-white">D</div>
+            <div class="piano__key-white">E</div>
+            <div class="piano__key-white">F</div>
+            <div class="piano__key-white">G</div>
+            <div class="piano__key-white">A</div>
+            <div class="piano__key-white">B</div>
+                <div class="piano__key-black cs">C#</div>
+            <div class="piano__key-black ds">D#</div>
+            <div class="piano__key-black fs">F#</div>
+            <div class="piano__key-black gs">G#</div>
+            <div class="piano__key-black as">A#</div>
+        </div>
     </div>
     <script src="static/script/main.js"></script>
 </body>
+
 </html>

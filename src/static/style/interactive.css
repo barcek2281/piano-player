@@ -1,0 +1,37 @@
+.interactive-panel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.recording-mode {
+    margin-bottom: 24px;
+}
+
+.btn_switch {
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.btn_switch.active {
+  background-color: green;
+  color: white;
+}
+
+.btn_recording {
+  border: none;
+  background-color: gray;
+  color: white;
+  padding: 6px 16px;
+  margin-right: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn_recording.active {
+    background-color:deepskyblue;
+}
