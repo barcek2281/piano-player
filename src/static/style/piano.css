@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.piano__key-white {
+.piano__key.white {
   height: 400px;
   width: 60px;
   border: 1px #e5e5e6 solid;
@@ -19,8 +19,10 @@
   box-sizing: border-box;
   cursor: pointer;
 }
-
-.piano__key-black {
+.piano__key.white.active {
+  background-color: #d2d2d4;
+}
+.piano__key.black {
   position: absolute;
   top: 0;
   height: 200px;
@@ -36,10 +38,23 @@
   z-index: 2;
   cursor: pointer;
 }
+.piano__key.black.active {
+  background-color:rgb(84, 84, 84);
+}
 
-.cs { left: 35px; }
-.ds { left: 85px; }
+.cs {
+  left: 35px;
+}
+.ds {
+  left: 85px;
+}
 
-.fs { left: 205px; }
-.gs { left: 265px; }
-.as { left: 325px; }
+.fs {
+  left: 205px;
+}
+.gs {
+  left: 265px;
+}
+.as {
+  left: 325px;
+}
