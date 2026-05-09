@@ -47,7 +47,6 @@ for (let key in keyMap) {
     }
   }
 }
-console.log(notesAndPianoKeys);
 
 // init piano key by mouse
 pianoKeys.forEach((pianoKey) => {
@@ -105,7 +104,6 @@ document.addEventListener("keyup", (event) => {
 export function playAudio(filename) {
   const audio = new Audio(filename);
   audio.play();
-  console.log("this file is playing: ", filename);
 }
 
 /**

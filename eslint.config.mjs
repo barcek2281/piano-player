@@ -10,7 +10,7 @@ export default defineConfig([
     languageOptions: { globals: globals.browser },
     rules: {
       "semi": "error",
-      // "no-console": "error",
+      "no-console": "error",
       "no-unused-vars": "error",
       "no-var": "error",
       "no-undef": "error",

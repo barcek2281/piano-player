@@ -41,11 +41,7 @@ downloadRecord.addEventListener("click", async () => {
   if (state.recording.length == 0) {
     return;
   }
-  try {
-    await getNewFileHandle(state.recording);
-  } catch (err) {
-    console.error(err);
-  }
+  await getNewFileHandle(state.recording);
 });
 
 async function getNewFileHandle(content) {
