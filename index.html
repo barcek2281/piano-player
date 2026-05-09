@@ -16,9 +16,9 @@
             <button class="btn_switch">Prepared Mode</button>
         </div>
         <div class="recording-mode">
-            <button class="btn_recording">Record</button>
-            <button class="btn_recording">Stop Recording</button>
-            <button class="btn_recording">Download Recording</button>
+            <button id="Record" class="btn_recording active">Record</button>
+            <button id="stopRecord" class="btn_recording">Stop Recording</button>
+            <button id="downloadRecord"class="btn_recording">Download Recording</button>
         </div>
     </div>
     <div id="piano" class="piano">
@@ -38,8 +38,10 @@
         </div>
 
     </div>
+    <script type="module" src="./src/static/script/main.js"></script>
 
     <script type="module" src="./src/static/script/piano.js"></script>
+    <script type="module" src="./src/static/script/recording.js"></script>
 </body>
 
 </html>

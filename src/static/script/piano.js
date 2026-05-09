@@ -12,77 +12,82 @@ const keyMap = {
   Digit6: "Gb3",
   KeyY: "A3",
   Digit7: "Ab3",
-  KeyU: "B3"
+  KeyU: "B3",
 };
 
 const pianoKeys = document.querySelectorAll(".piano__key");
 export const notesAndPianoKeys = {};
 
 for (let key in keyMap) {
-    const note = keyMap[key];
-    for (let pianoKey of pianoKeys) {
-        if (pianoKey.dataset.note === note) {
-            notesAndPianoKeys[note] = pianoKey;
-        }
+  const note = keyMap[key];
+  for (let pianoKey of pianoKeys) {
+    if (pianoKey.dataset.note === note) {
+      notesAndPianoKeys[note] = pianoKey;
     }
+  }
 }
 
 // init piano key by mouse
 pianoKeys.forEach((pianoKey) => {
-    const key = pianoKey.dataset.note;
-    pianoKey.addEventListener("mousedown", () => {
-        playNote(key);
-        pianoKey.classList.add("active");
-    });
+  const note = pianoKey.dataset.note;
+  pianoKey.addEventListener("mousedown", () => {
+    playNote(note);
+  });
 
-     pianoKey.addEventListener("mouseup", () => {
-        pianoKey.classList.remove("active");
-    });
+  pianoKey.addEventListener("mouseup", () => {
+    pianoKey.classList.remove("active");
+  });
 });
-
 
 // init input from keyboard
 document.addEventListener("keydown", (event) => {
-    event.preventDefault();
-    if (event.code in keyMap) {
-        const note = keyMap[event.code];
-        if(!state.pressedKey.has(note)) {
-            playNote(note);
-            state.pressedKey.add(note);
-            const elementPianoKey = notesAndPianoKeys[note];
-            elementPianoKey.classList.add("active");
-        }
+  event.preventDefault();
+  if (event.code in keyMap) {
+    const note = keyMap[event.code];
+    if (!state.pressedKey.has(note)) {
+      playNote(note);
+
     }
+  }
 });
 
 document.addEventListener("keyup", (event) => {
-    event.preventDefault();
-    const code = event.code;
-    const note = keyMap[event.code];
-    if (code in keyMap && state.pressedKey.has(note)) {
-            state.pressedKey.delete(note);
-            const elementPianoKey = notesAndPianoKeys[note];
-            elementPianoKey.classList.remove("active");
-
-    }
+  event.preventDefault();
+  const code = event.code;
+  const note = keyMap[event.code];
+  if (code in keyMap && state.pressedKey.has(note)) {
+    state.pressedKey.delete(note);
+    const elementPianoKey = notesAndPianoKeys[note];
+    elementPianoKey.classList.remove("active");
+  }
 });
 
-
 /**
- * 
- * @param {string} filename 
+ *
+ * @param {string} filename
  */
 export function playAudio(filename) {
-    const audio = new Audio(filename);
-    audio.play();
-    console.log("this file is playing: ", filename);
+  const audio = new Audio(filename);
+  audio.play();
+  console.log("this file is playing: ", filename);
 }
 
 /**
- * 
- * @param {string} note 
+ *
+ * @param {string} note
  */
-export function playNote(note){
-    const filename = `src/static/notes/old/${note}.mp3`;
-    playAudio(filename);
+export function playNote(note) {
+  state.pressedKey.add(note);
+  const elementPianoKey = notesAndPianoKeys[note];
+  elementPianoKey.classList.add("active");
+
+  if (state.isRecording) {
+    state.recording.push({
+      note: note,
+      startTime: Date.now() - state.startedTime,
+      duration: 2000,
+    });
+  }
+  const filename = `src/static/notes/old/${note}.mp3`;
+  playAudio(filename);
 }

@@ -11,6 +11,7 @@ class State {
     this.isRecording = false;
     this.recording = [];
     this.pressedKey = new Set();
+    this.startedTime = null;
   }
 
 }
