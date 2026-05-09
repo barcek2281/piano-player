@@ -5,7 +5,7 @@
 }
 
 .recording-mode {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .btn_switch {
@@ -34,12 +34,19 @@
 }
 
 .btn_recording.active {
-    background-color:deepskyblue;
+  background-color: deepskyblue;
 }
-
+.hidden{
+  display: none;
+}
 input.music {
   border: 1px black solid;
   padding: 8px 15px;
   border-radius: 5px;
+  margin-bottom: 15px;
+}
+.prepared-mode-btn {
+  display: flex;
+  justify-content: center;
   margin-bottom: 15px;
 }

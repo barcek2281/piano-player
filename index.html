@@ -12,18 +12,20 @@
 <body>
     <div class="interactive-panel">
         <div class="switch-mode">
-            <button class="btn_switch active">Interactive Mode</button>
-            <button class="btn_switch">Prepared Mode</button>
+            <button id="interactive" class="btn_switch active">Interactive Mode</button>
+            <button id="prepared" class="btn_switch">Prepared Mode</button>
         </div>
         <div class="recording-mode">
             <button id="Record" class="btn_recording active">Record</button>
             <button id="stopRecord" class="btn_recording">Stop Recording</button>
             <button id="downloadRecord"class="btn_recording">Download Recording</button>
         </div>
-        <input id="input-file" class="music" type="file">
-        <div class="recording-mode">
-            <button id="play" class="btn_recording">play</button>
-            <button id="stop" class="btn_recording">stop</button>
+        <div class="prepared-mode hidden">
+            <input id="input-file" class="music" type="file">
+            <div class="prepared-mode-btn">
+                <button id="play" class="btn_recording">play</button>
+                <button id="stop" class="btn_recording">stop</button>
+            </div>
         </div>
     </div>
     <div id="piano" class="piano">

@@ -1,8 +1,8 @@
 import { playNote } from "./piano.js";
-
 const inputFile = document.getElementById("input-file");
 const playBtn = document.getElementById("play");
 const stopBtn = document.getElementById("stop");
+
 const timeouts = [];
 let userFile = null;
 
@@ -13,6 +13,7 @@ inputFile.addEventListener("change", (event) => {
 });
 
 playBtn.addEventListener("click", async ()=> {
+    if (!userFile) return;
     const content = await userFile.text();
     const jsonContent = JSON.parse(content);
     playMusic(jsonContent.notes);
@@ -21,11 +22,14 @@ playBtn.addEventListener("click", async ()=> {
 });
 
 stopBtn.addEventListener("click", ()=> {
+    if (!userFile) return;
     stopBtn.classList.remove("active");
     for(let timeout of timeouts) {
         clearTimeout(timeout);
     }
-    playBtn.classList.add("active");
+    if (!playBtn.classList.contains("active")) {
+        playBtn.classList.add("active");
+    }
 });
 
 /**
