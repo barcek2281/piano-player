@@ -61,8 +61,11 @@ pianoKeys.forEach((pianoKey) => {
     }
     playNote(note);
   });
+   pianoKey.addEventListener("mouseup", () => {
+    pianoKey.classList.remove("active");
+  });
 
-  pianoKey.addEventListener("mouseup", () => {
+  pianoKey.addEventListener("mouseleave", () => {
     pianoKey.classList.remove("active");
   });
 });
