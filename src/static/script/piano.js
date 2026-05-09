@@ -1,6 +1,6 @@
 import { state } from "./main.js";
-
 const keyMap = {
+  // Octave 3
   KeyQ: "C3",
   Digit2: "Cb3",
   KeyW: "D3",
@@ -13,6 +13,27 @@ const keyMap = {
   KeyY: "A3",
   Digit7: "Ab3",
   KeyU: "B3",
+
+  // Octave 4
+  KeyI: "C4",
+  Digit9: "Cb4",
+  KeyO: "D4",
+  Digit0: "Db4",
+  KeyP: "E4",
+  KeyZ: "F4",
+  KeyS: "Fb4",
+  KeyX: "G4",
+  KeyD: "Gb4",
+  KeyC: "A4",
+  KeyF: "Ab4",
+  KeyV: "B4",
+
+  // Octave 5
+  KeyB: "C5",
+  KeyH: "Cb5",
+  KeyN: "D5",
+  KeyJ: "Db5",
+  KeyM: "E5",
 };
 
 const pianoKeys = document.querySelectorAll(".piano__key");
@@ -26,6 +47,7 @@ for (let key in keyMap) {
     }
   }
 }
+console.log(notesAndPianoKeys);
 
 // init piano key by mouse
 pianoKeys.forEach((pianoKey) => {
@@ -104,6 +126,6 @@ export function playNote(note, isTimeout = false) {
       elementPianoKey.classList.remove("active");
     }, 2000);
   }
-  const filename = `src/static/notes/old/${note}.mp3`;
+  const filename = `src/static/notes/${note}.mp3`;
   playAudio(filename);
 }
