@@ -29,7 +29,6 @@ stopRecordingBtn.addEventListener("click", () => {
     return;
   }
   state.isRecording = false;
-  console.log("clicked to stop recording");
   downloadRecord.classList.add("active");
   stopRecordingBtn.classList.remove("active");
   recordingBtn.classList.add("active");

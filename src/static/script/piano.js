@@ -76,7 +76,7 @@ export function playAudio(filename) {
  *
  * @param {string} note
  */
-export function playNote(note) {
+export function playNote(note, isTimeout=false) {
   state.pressedKey.add(note);
   const elementPianoKey = notesAndPianoKeys[note];
   elementPianoKey.classList.add("active");
@@ -87,6 +87,11 @@ export function playNote(note) {
       startTime: Date.now() - state.startedTime,
       duration: 2000,
     });
+  }
+  if (isTimeout) {
+    setTimeout(()=>{
+        elementPianoKey.classList.remove("active");
+    }, 2000);
   }
   const filename = `src/static/notes/old/${note}.mp3`;
   playAudio(filename);
