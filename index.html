@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano player</title>
+    <link rel="stylesheet" href="./src/static/style/style.css">
+
+</head>
+
+<body>
+    <div class="interactive-panel">
+        <div class="switch-mode">
+            <button class="btn_switch active">Interactive Mode</button>
+            <button class="btn_switch">Prepared Mode</button>
+        </div>
+        <div class="recording-mode">
+            <button class="btn_recording">Record</button>
+            <button class="btn_recording">Stop Recording</button>
+            <button class="btn_recording">Download Recording</button>
+        </div>
+    </div>
+    <div id="piano" class="piano">
+        <div class="octave">
+            <div class="piano__key white" data-note="C3">C</div>
+            <div class="piano__key black cs" data-note="Cb3" >C#</div>
+            <div class="piano__key white"  data-note="D3">D</div>
+            <div class="piano__key black ds"  data-note="Db3" >D#</div>
+            <div class="piano__key white"  data-note="E3">E</div>
+            <div class="piano__key white" data-note="F3">F</div>
+            <div class="piano__key black fs"  data-note="Fb3">F#</div>
+            <div class="piano__key white"  data-note="G3">G</div>
+            <div class="piano__key black gs" data-note="Gb3" >G#</div>
+            <div class="piano__key white"  data-note="A3">A</div>
+            <div class="piano__key black as"data-note="Ab3" >A#</div>
+            <div class="piano__key white"  data-note="B3">B</div>
+        </div>
+
+    </div>
+
+    <script type="module" src="./src/static/script/piano.js"></script>
+</body>
+
+</html>
