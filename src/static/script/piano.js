@@ -29,11 +29,14 @@ for (let key in keyMap) {
 
 // init piano key by mouse
 pianoKeys.forEach((pianoKey) => {
-    if (state.mode !== "interactive") {
-        return;
-    } 
+  if (state.mode !== "interactive") {
+    return;
+  }
   const note = pianoKey.dataset.note;
   pianoKey.addEventListener("mousedown", () => {
+    if (state.mode !== "interactive") {
+      return;
+    }
     playNote(note);
   });
 
@@ -46,13 +49,12 @@ pianoKeys.forEach((pianoKey) => {
 document.addEventListener("keydown", (event) => {
   event.preventDefault();
   if (event.code in keyMap) {
-       if (state.mode !== "interactive") {
-        return;
-    } 
+    if (state.mode !== "interactive") {
+      return;
+    }
     const note = keyMap[event.code];
     if (!state.pressedKey.has(note)) {
       playNote(note);
-
     }
   }
 });
@@ -62,9 +64,9 @@ document.addEventListener("keyup", (event) => {
   const code = event.code;
   const note = keyMap[event.code];
   if (code in keyMap && state.pressedKey.has(note)) {
-       if (state.mode !== "interactive") {
-        return;
-    } 
+    if (state.mode !== "interactive") {
+      return;
+    }
     state.pressedKey.delete(note);
     const elementPianoKey = notesAndPianoKeys[note];
     elementPianoKey.classList.remove("active");
@@ -85,7 +87,7 @@ export function playAudio(filename) {
  *
  * @param {string} note
  */
-export function playNote(note, isTimeout=false) {
+export function playNote(note, isTimeout = false) {
   state.pressedKey.add(note);
   const elementPianoKey = notesAndPianoKeys[note];
   elementPianoKey.classList.add("active");
@@ -98,8 +100,8 @@ export function playNote(note, isTimeout=false) {
     });
   }
   if (isTimeout) {
-    setTimeout(()=>{
-        elementPianoKey.classList.remove("active");
+    setTimeout(() => {
+      elementPianoKey.classList.remove("active");
     }, 2000);
   }
   const filename = `src/static/notes/old/${note}.mp3`;

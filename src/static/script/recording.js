@@ -35,6 +35,12 @@ stopRecordingBtn.addEventListener("click", () => {
 });
 
 downloadRecord.addEventListener("click", async () => {
+  if (state.isRecording) {
+    return;
+  }
+  if (state.recording.length == 0) {
+    return;
+  }
   try {
     await getNewFileHandle(state.recording);
   } catch (err) {
